@@ -225,6 +225,12 @@
   }
 }
 
+@media screen and (max-width: 440px) {
+  .App__menu {
+    position: relative;
+  }
+}
+
 @media screen and (max-width: 375px) {
   .App {
     flex-direction: column;
