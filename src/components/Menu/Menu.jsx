@@ -25,8 +25,8 @@ function Menu() {
 
   useEffect(() => {
     const value = [minValue, maxValue];
-    priceFunc(value);
-  }, [minValue, maxValue]);
+    dispatch(sortProducts(value));
+  }, [minValue, maxValue, dispatch]);
 
   const priceFunc = (data) => {
     dispatch(sortProducts(data));
