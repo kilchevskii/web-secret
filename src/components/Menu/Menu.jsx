@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Slider, InputNumber, Checkbox } from "antd";
 import {
@@ -7,6 +7,7 @@ import {
 } from "../../redux/actions/actionProducts";
 
 function Menu() {
+  const ref = useRef(null);
   const productsAmount = useSelector((state) => state?.products.data);
   const CheckboxGroup = Checkbox.Group;
   const listOptions = [
@@ -31,7 +32,7 @@ function Menu() {
   const priceFunc = (data) => {
     dispatch(sortProducts(data));
   };
-  const handleChangeValue = (value) => {
+  const changeValue = (value) => {
     let [min, max] = value;
     setMinValue(min);
     setMaxValue(max);
@@ -46,7 +47,6 @@ function Menu() {
         <p className="length-description">Товаров {productsAmount?.length}</p>
         <h1 className="name-description">Камеры</h1>
       </div>
-
       <div className="slider-container">
         <p className="bolder-description">Цена, ₽</p>
         <div className="input-container">
@@ -63,9 +63,10 @@ function Menu() {
         <Slider
           min={0}
           max={499000}
+          ref={ref}
           range={{ draggableTrack: true }}
           value={[minValue, maxValue]}
-          onChange={(value) => handleChangeValue(value)}
+          onChange={(value) => changeValue(value)}
           onAfterChange={(value) => priceFunc(value)}
         />
       </div>
