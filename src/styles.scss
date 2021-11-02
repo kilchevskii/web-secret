@@ -115,6 +115,16 @@ html {
     flex-wrap: wrap;
     justify-content: flex-start;
     margin-left: 230px;
+    .card-loader {
+      border-radius: 8px;
+      padding: 10px;
+      max-height: 410px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 245px;
+      margin: 0px 8px 20px;
+    }
     .card-item {
       max-width: 245px;
       box-sizing: border-box;
