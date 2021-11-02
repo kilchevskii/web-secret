@@ -1,9 +1,8 @@
 import { all } from "redux-saga/effects";
 import {
   fetchProductsSaga,
-  sortProductsByCost,
-  sortProductsByName,
+  fetchSortProducts,
 } from "./productsSaga";
 export default function* rootSaga() {
-  yield all([fetchProductsSaga(), sortProductsByCost(), sortProductsByName()]);
+  yield all([fetchProductsSaga(), fetchSortProducts()]);
 }

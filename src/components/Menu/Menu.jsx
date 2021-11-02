@@ -1,13 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Slider, InputNumber, Checkbox } from "antd";
-import {
-  sortProducts,
-  sortProductsByName,
-} from "../../redux/actions/actionProducts";
+import { sortProducts } from "../../redux/actions/actionProducts";
 
 function Menu() {
-  const ref = useRef(null);
   const productsAmount = useSelector((state) => state?.products.data);
   const CheckboxGroup = Checkbox.Group;
   const listOptions = [
@@ -25,22 +21,17 @@ function Menu() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const value = [minValue, maxValue];
-    dispatch(sortProducts(value));
-  }, [minValue, maxValue, dispatch]);
+    return minValue === 0 && maxValue === 499000 && !checkedList
+      ? null
+      : dispatch(sortProducts({ minValue, maxValue, checkedList }));
+  }, [minValue, maxValue, checkedList, dispatch]);
 
-  const priceFunc = (data) => {
-    dispatch(sortProducts(data));
-  };
   const changeValue = (value) => {
     let [min, max] = value;
     setMinValue(min);
     setMaxValue(max);
   };
-  const onChange = (list) => {
-    setCheckedList(list);
-    dispatch(sortProductsByName(list));
-  };
+
   return (
     <div className="App__menu">
       <div className="App-description">
@@ -63,11 +54,9 @@ function Menu() {
         <Slider
           min={0}
           max={499000}
-          ref={ref}
           range={{ draggableTrack: true }}
           value={[minValue, maxValue]}
           onChange={(value) => changeValue(value)}
-          onAfterChange={(value) => priceFunc(value)}
         />
       </div>
       <p className="bolder-description">Бренд</p>
@@ -75,7 +64,7 @@ function Menu() {
         <CheckboxGroup
           options={listOptions}
           value={checkedList}
-          onChange={(value) => onChange(value)}
+          onChange={(title) => setCheckedList(title)}
         />
       </div>
     </div>

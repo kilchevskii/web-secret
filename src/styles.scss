@@ -3,6 +3,9 @@
   padding: 0;
   margin: 0;
   font-family: "Montserrat", sans-serif;
+  span {
+    color: #000;
+  }
 }
 html {
   padding: 0 calc(20px - (100vw - 100%)) 0 0;
@@ -26,7 +29,7 @@ html {
     color: #1b1b1b;
   }
   .medium-description {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     color: #1b1b1b;
     margin: 0;
@@ -55,16 +58,35 @@ html {
       padding: 0px 0px 3px;
       justify-content: space-between;
       display: flex;
+      border: 1px solid #dbdbdb;
+      padding: 5px 0px;
+      border-radius: 4px;
+      position: relative;
+      transition: 0.3s;
+      &:hover {
+        transition: 0.3s;
+        border-color: #a7a7a7;
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        right: 50%;
+        top: 0;
+        bottom: 0;
+        height: 100%;
+        width: 1px;
+        background-color: #dbdbdb;
+      }
       .ant-input-number-handler-wrap {
         display: none;
       }
       .ant-input-number {
         width: 50%;
+        border: none;
         &:hover,
         &:focus,
         &:focus-within,
         &:target {
-          border-color: #7993a6;
           box-shadow: none;
         }
       }
@@ -90,21 +112,29 @@ html {
       display: flex;
       flex-direction: column;
       font-weight: 500;
+      .ant-checkbox-group-item {
+        padding-bottom: 5px;
+        align-items: flex-start;
+      }
+      .ant-checkbox-inner {
+        height: 18px;
+        width: 18px;
+      }
       .ant-checkbox-wrapper + .ant-checkbox-wrapper {
         margin-left: 0px;
       }
       .ant-checkbox-checked::after {
-        border: 1px solid #7993a6;
+        border: 1px solid #a7a7a7;
       }
       .ant-checkbox-checked .ant-checkbox-inner {
-        background-color: #7993a6;
-        border-color: #7993a6;
+        background-color: #a7a7a7;
+        border-color: #a7a7a7;
       }
       .ant-checkbox-input:focus + .ant-checkbox-inner {
-        border-color: #7993a6;
+        border-color: #a7a7a7;
       }
       .ant-checkbox-wrapper:hover .ant-checkbox-inner {
-        border-color: #7993a6;
+        border-color: #a7a7a7;
       }
     }
   }
@@ -113,7 +143,7 @@ html {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: left;
     margin-left: 230px;
     .card-loader {
       border-radius: 8px;
@@ -126,44 +156,49 @@ html {
       margin: 0px 8px 20px;
     }
     .card-item {
-      max-width: 245px;
+      max-width: 22%;
+      min-width: 215px;
       box-sizing: border-box;
       width: 100%;
       border: 1px solid #e5e5e5;
       border-radius: 6px;
-      height: 415px;
       overflow: hidden;
       font-weight: 500;
       margin: 0px 8px 20px;
+      display: flex;
+      flex-direction: column;
       .card-image {
         position: relative;
-        height: 67%;
+        height: 60%;
         img {
-          width: auto;
-          height: auto;
+          width: 100%;
+          height: 100%;
         }
         .new-state {
           position: absolute;
-          top: 10%;
-          left: 15%;
+          top: 5%;
+          left: 5%;
           color: #fff;
           background-color: #44c377;
-          height: 25px;
-          width: 80px;
+          height: 26px;
+          width: 79px;
           border-radius: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
       }
       .card-description {
         display: flex;
         flex-direction: column;
         align-items: baseline;
-        padding: 0px 10px 0px 10px;
-        height: 30%;
-        justify-content: space-around;
+        margin: 15px 10px 15px;
+        justify-content: space-between;
+        height: 32%;
         .btns-container {
           display: flex;
           justify-content: space-between;
-          width: 90%;
+          width: 100%;
           align-items: center;
           margin-bottom: -5px;
           cursor: pointer;
@@ -177,10 +212,13 @@ html {
           }
         }
         .card-price {
-          width: 95%;
+          width: 100%;
           justify-content: space-between;
           display: flex;
           align-items: flex-end;
+          .new-description {
+            font-size: 11px;
+          }
         }
       }
       button {
@@ -250,15 +288,18 @@ html {
     }
     .App__product-container {
       padding: 30px 0px;
+      margin-left: 0;
       .card-item {
         display: flex;
         height: auto;
         max-width: 100%;
         margin: 0px 10px;
-        padding-bottom: 20px;
+        padding-bottom: 26px;
         border: none;
         position: relative;
         justify-content: space-between;
+        flex-direction: row;
+        box-sizing: border-box;
         &:after {
           content: "";
           width: 100%;
@@ -271,28 +312,47 @@ html {
           background-color: #e5e5e5;
         }
         .card-image {
+          height: auto;
+          width: 40%;
           img {
+            height: auto;
             max-width: 125px;
             max-height: 125px;
             border-radius: 10px;
           }
+          .new-state {
+            font-size: 11px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 20px;
+            width: 60px;
+            top: 5%;
+            left: 10%;
+          }
         }
         .card-description {
-          height: 90%;
           justify-content: space-between;
-          padding: 10px 15px 0px 10px;
+          margin: 15px 10px 5px;
+          width: 60%;
           .medium-description {
             font-size: 12px;
           }
           .card-price {
+            width: 100%;
             .bolder-description {
               font-size: 13px;
+              align-items: center;
             }
           }
-          button {
-            max-width: 86px;
-            font-size: 12px;
-            height: 34px;
+          .btns-container {
+            width: 100%;
+            button {
+              max-width: 106px;
+              font-size: 14px;
+              height: 40px;
+              font-weight: 500;
+            }
           }
         }
       }

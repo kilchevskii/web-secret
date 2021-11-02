@@ -10,8 +10,8 @@ function Card({ image, id, title, price, isNew, isSecondHand }) {
       <div className="card-description">
         <p className="medium-description">{title}</p>
         <div className="card-price">
-          <span className="bolder-description">{price}</span>
-          {isNew ? <span>Новое</span> : null}
+          <span className="bolder-description">{price} ₽</span>
+          {isNew ? <span className="new-description">Новое</span> : null}
         </div>
         <p className="bolder-description"></p>
         <div className="btns-container">

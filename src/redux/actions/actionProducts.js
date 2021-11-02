@@ -1,4 +1,4 @@
-import { GET_PRODUCTS_REQUESTED, GET_SORT_COST_REQUESTED, GET_SORT_NAME_REQUESTED } from "./actionTypes";
+import { GET_PRODUCTS_REQUESTED, GET_SORT_REQUESTED } from "./actionTypes";
 
 export const getProducts = (data) => {
   return {
@@ -9,14 +9,7 @@ export const getProducts = (data) => {
 
 export const sortProducts = (data) => {
   return {
-    type: GET_SORT_COST_REQUESTED,
-    payload: data,
-  };
-};
-
-export const sortProductsByName = (data) => {
-  return {
-    type: GET_SORT_NAME_REQUESTED,
+    type: GET_SORT_REQUESTED,
     payload: data,
   };
 };
