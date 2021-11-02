@@ -55,7 +55,7 @@ export default function productsReducer(state = initialState, action) {
       const [min, max] = action.payload[0];
       return {
         ...state,
-        loading: true,
+        loading: false,
         data: copyData.filter((item) => item.price > min && item.price < max),
       };
     case GET_SORT_NAME_SUCCESS:
@@ -63,7 +63,7 @@ export default function productsReducer(state = initialState, action) {
       const sortName = action.payload[0].join("");
       return {
         ...state,
-        loading: true,
+        loading: false,
         data: sortByName(copyDataForName, sortName),
       };
     case GET_SORT_NAME_REQUESTED:
