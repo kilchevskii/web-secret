@@ -281,6 +281,7 @@ html {
     flex-direction: column;
     .App__menu {
       position: relative;
+      padding: 0 24px;
       .App-description {
         display: flex;
         flex-direction: column-reverse;
@@ -289,6 +290,21 @@ html {
     .App__product-container {
       padding: 30px 0px;
       margin-left: 0;
+      .card-loader {
+        max-width: 100%;
+        position: relative;
+        &:after {
+          content: "";
+          width: auto;
+          height: 1px;
+          display: block;
+          bottom: 0px;
+          left: 10px;
+          right: 0;
+          position: absolute;
+          background-color: #e5e5e5;
+        }
+      }
       .card-item {
         display: flex;
         height: auto;
@@ -333,15 +349,17 @@ html {
         }
         .card-description {
           justify-content: space-between;
-          margin: 15px 10px 5px;
+          margin: 0px 10px 5px;
           width: 60%;
+          height: auto;
           .medium-description {
             font-size: 12px;
           }
           .card-price {
             width: 100%;
+            margin-bottom: -30px;
             .bolder-description {
-              font-size: 13px;
+              font-size: 16px;
               align-items: center;
             }
           }

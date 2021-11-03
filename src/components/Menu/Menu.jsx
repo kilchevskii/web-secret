@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Slider, InputNumber, Checkbox } from "antd";
 import { sortProducts } from "../../redux/actions/actionProducts";
-
 function Menu() {
   const productsAmount = useSelector((state) => state?.products.data);
   const CheckboxGroup = Checkbox.Group;
@@ -19,7 +18,6 @@ function Menu() {
   const [maxValue, setMaxValue] = useState(499000);
   const [checkedList, setCheckedList] = useState(null);
   const dispatch = useDispatch();
-
   useEffect(() => {
     return minValue === 0 && maxValue === 499000 && !checkedList
       ? null

@@ -53,7 +53,6 @@ const getSortProducts = async ({ maxValue, minValue, checkedList }) => {
 function* sortProductsSaga(data) {
   try {
     const sortProducts = yield call(() => getSortProducts(data.payload));
-    console.log(sortProducts);
     yield put({
       type: "GET_SORT_SUCCESS",
       payload: sortProducts,
