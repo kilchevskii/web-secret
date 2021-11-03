@@ -13,7 +13,6 @@ function Card({ image, id, title, price, isNew, isSecondHand }) {
           <span className="bolder-description">{price} ₽</span>
           {isNew ? <span className="new-description">Новое</span> : null}
         </div>
-        <p className="bolder-description"></p>
         <div className="btns-container">
           <button>В корзину</button>
           <svg width="22" height="22" viewBox="0 0 21 18" fill="none">
