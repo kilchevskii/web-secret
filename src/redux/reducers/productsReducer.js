@@ -13,31 +13,6 @@ const initialState = {
   success: false,
 };
 
-// const sortByName = (data, name) => {
-//   const copyData = JSON.parse(JSON.stringify(data));
-//   const resultArray = [];
-//   let namesArray = [];
-//   namesArray = name.toLowerCase().split(",");
-//   if (namesArray[0] === "") {
-//     return copyData;
-//   } else if (namesArray.length === 1) {
-//     for (let i = 0; i < data.length; i++) {
-//       if (data[i].title.split(" ")[0].toLowerCase() === namesArray.join()) {
-//         resultArray.push(data[i]);
-//       }
-//     }
-//   } else if (namesArray.length >= 1) {
-//     for (let i = 0; i < data.length; i++) {
-//       for (let j = 0; j < data.length; j++) {
-//         if (data[i].title.split(" ")[0].toLowerCase() === namesArray[j]) {
-//           resultArray.push(data[i]);
-//         }
-//       }
-//     }
-//   }
-//   return resultArray;
-// };
-
 export default function productsReducer(state = initialState, action) {
   switch (action.type) {
     case GET_PRODUCTS_REQUESTED:
